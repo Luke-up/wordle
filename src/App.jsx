@@ -1,33 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // keep correct word
+  // keep board state
+  // keep current line counter
+  // keep current guess letters
+
+  // function when guess is entered
+  // check 5 letters
+  // check each letter against all letters in correct word
+  // respond with letter statuses green, orange, grey 
+  // *deal with duplicate letters
+
+  // Each keyboard key need status active or not if known incorrect
+
+  // Each keyboard key runs function
+  // Check guess word is not at 5 letters already
+  // add letter to end of guess word
+  // when guess word state updates reference current line 
+  // and position of new letter in guess word to find the id of 
+  // display block and make the letter visible there
+
+  // Enter key runs check function
+
+  // delete key removes last letter on guess word
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div style={{ padding: 20, fontSize: 24, color: "#000000", }}>
+        Wordle clone
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
