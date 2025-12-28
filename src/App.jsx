@@ -57,8 +57,10 @@ function App() {
           {keyboardStatus.map( (row,rowIndex) => (
             <div className="row" key={rowIndex}>
               {row.map((letterObj, letterIndex) => (
-                <div key={letterIndex} className={`button ${letterObj.status}`} onClick={() => onClickHandler(letterObj.letter)}>
-                  {letterObj.letter.toUpperCase()}
+                <div key={letterIndex} className={`button ${letterObj.status} ${letterObj.letter === "enter" || letterObj.letter === "backspace" ? "special" : ""}`} onClick={() => onClickHandler(letterObj.letter)}>
+                  {letterObj.letter === "enter" ? "⏎" :
+                    letterObj.letter === "backspace" ? "⌫" :
+                    letterObj.letter.toUpperCase()}
                 </div>
                 ))
               }
