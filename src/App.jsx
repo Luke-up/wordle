@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import "./App.scss"
 
 function App() {
   // keep correct word
@@ -24,11 +26,46 @@ function App() {
 
   // delete key removes last letter on guess word
 
+  const keyboard = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z','x','c','v','b','n','m','enter']
+  ]
+
+  const initialiseKeyboard = () => {
+    return keyboard.map( row =>
+      row.map( letter => ({
+          letter: letter,
+          status: "unused"
+      }))
+    )
+  }
+
+  const [keyboardStatus, setKeyboardStatus] = useState(initialiseKeyboard())
+
+  const onClickHandler = () => {
+    return "nothing"
+  }
+
+  console.log(keyboardStatus)
 
   return (
     <>
       <div style={{ padding: 20, fontSize: 24, color: "#000000", }}>
         Wordle clone
+        <div id="keyboard">
+          {keyboardStatus.map( (row,rowIndex) => (
+            <div className="row" key={rowIndex}>
+              {row.map((letterObj, letterIndex) => (
+                <div key={letterIndex} className={`button ${letterObj.status}`} onClick={() => onClickHandler(letterObj.letter)}>
+                  {letterObj.letter.toUpperCase()}
+                </div>
+                ))
+              }
+            </div>)
+            )
+          }
+        </div>
       </div>
     </>
   )

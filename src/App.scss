@@ -1,0 +1,26 @@
+$button-height: 50px;
+$button-width: 40px;
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: $button-width;
+  height: $button-height;
+  margin: 2px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+
+  &.unused { background-color: #ccc; }
+  &.absent { background-color: #555; }
+  &.present { background-color: orange; }
+  &.correct { background-color: green; }
+}
